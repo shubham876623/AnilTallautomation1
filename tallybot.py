@@ -112,7 +112,7 @@ for i in range (0,5):
     
     # TDS payable_goods @ 0.1%
     pg.press("enter", presses=1)
-    pg.write("TDS payable_goods @ 0.1%")  #
+    pg.write("TDS payable_goods @ 0.1%")  
     pg.press("enter", presses=2)
     pg.write("KJL-123456")
     pg.press("enter",presses=1)
