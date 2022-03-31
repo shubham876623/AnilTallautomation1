@@ -58,11 +58,14 @@ soup=BeautifulSoup(driver.page_source,'html.parser')
 table=soup.find('table',{'id':'ContentPlaceHolder1_gvBillNotYetBK'}).find_all('tr')
 time.sleep(3)
 
-for i  in range (1,2):
+# for i  in range (1,2):
+for i  in range (1,len(table)-1,2):
+
     all_anchor_tag=table[i].find('td').find('a')
-    # print("https://stockexcel.com/"+all_anchor_tag.get('href'))
-    # driver.get("https://stockexcel.cyom/"+all_anchor_tag.get('href'))
-    driver.get('https://stockexcel.com/BillProcess.aspx?bpd=50370&bk=y')
+    print("https://stockexcel.com/"+all_anchor_tag.get('href'))
+    # time.sleep(100)
+    driver.get("https://stockexcel.com/"+all_anchor_tag.get('href'))
+    # driver.get('https://stockexcel.com/BillProcess.aspx?bpd=50151&bk=y')
     time.sleep(3)
     soup=BeautifulSoup(driver.page_source,'html.parser')
     company_name=soup.find('span',{'id':'ContentPlaceHolder1_lblSupplierName'})
@@ -93,15 +96,15 @@ for i  in range (1,2):
         time.sleep(3)
         
          
-        pg.press('enter')  # slecting account vaochar
-        time.sleep(1)
-        pg.hotkey('ctrl', 'v') # co
+        # pg.press('enter')  # slecting account vaochar
+        # time.sleep(1)
+        # pg.hotkey('ctrl', 'v') # co
         # pg.hotkey('ctrl', 'v')
         
         
-        time.sleep(2)
-        pg.press('f9')
-        time.sleep(1)
+        # time.sleep(1)
+        # pg.press('f9')
+        # time.sleep(1)
         # if comanin comany_list:
         
         pg.write(invoice_no.text.strip())
@@ -109,7 +112,7 @@ for i  in range (1,2):
         pg.press('f2')
         time.sleep(1)
         today = date.today()  # entering today date ..
-        time.sleep(2)
+        time.sleep(1)
         pg.write(today.strftime("%d/%m")) # entering today date .
         pg.press('enter')
         pg.press('enter')
@@ -136,7 +139,7 @@ for i  in range (1,2):
                 time.sleep(1)
                 pg.press("enter", presses=3)
                 time.sleep(1)
-                pg.write(invoice_no.text.strip()+"T")
+                pg.write(invoice_no.text.strip()+"TDS")
                 time.sleep(1)
                 
                 pg.press("enter", presses=5)
@@ -243,5 +246,5 @@ for i  in range (1,2):
        
     
         # time.sleep(5)
-    time.sleep(100)
+    # time.sleep(100)
 
